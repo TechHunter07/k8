@@ -1,0 +1,7 @@
+sudo apt update
+sudo apt install apache2-utils
+sudo htpasswd -c .htpasswd user 
+kubectl create secret generic ngnix-htpasswd --from-file .htpasswd
+kubectl create configmap ngnix-config-file --from-file ngnix.conf
+vi ngnix-pod.yaml
+kubectl apply -f ngnix-pod.yaml
