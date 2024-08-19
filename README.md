@@ -1,4 +1,4 @@
-<div style="background-color: ##000000; padding: 10px; border-radius: 5px;">
+<div style="background-color: #000000; padding: 10px; border-radius: 5px;">
   <h2>Kubernetes</h2>
   <p>Architecture
 <div align="center">
