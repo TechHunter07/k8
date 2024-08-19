@@ -79,3 +79,78 @@ Explanation of Kubernetes Components
   │    │    │    ├── Docker Image
   │    │    │    │    └── Docker File**
 
+************************** Basic Flow Chart to run an application IN K8 ***************************
+1. Create Dockerfile
+       |
+       v
+   1.1. Add base image (NGINX)
+   1.2. (Optional) Add custom configuration
+   1.3. Set up port exposure and commands
+       |
+       v
+2. Build Docker Image
+       |
+       v
+   2.1. Use `docker build` command
+   2.2. Tag the image appropriately
+       |
+       v
+3. Test Docker Container (Optional)
+       |
+       v
+   3.1. Use `docker run` to test locally
+   3.2. Map ports for testing
+       |
+       v
+4. Push Docker Image to Registry
+       |
+       v
+   4.1. Tag the image for the registry
+   4.2. Use `docker push` to upload
+       |
+       v
+5. Create Kubernetes Namespace
+       |
+       v
+   5.1. Use `kubectl create namespace`
+       |
+       v
+6. Create Kubernetes Deployment
+       |
+       v
+   6.1. Define YAML for deployment
+   6.2. Set replicas and container spec
+       |
+       v
+7. Deploy NGINX to Kubernetes
+       |
+       v
+   7.1. Apply the deployment file using `kubectl apply`
+       |
+       v
+8. Create Kubernetes Service
+       |
+       v
+   8.1. Define YAML for service
+   8.2. Set service type (ClusterIP, NodePort, LoadBalancer)
+       |
+       v
+9. Deploy Service
+       |
+       v
+   9.1. Apply the service file using `kubectl apply`
+       |
+       v
+10. Verify Deployment
+       |
+       v
+   10.1. Use `kubectl get deployments`, `kubectl get pods`, and `kubectl get svc`
+   10.2. Check pod logs if needed using `kubectl logs`
+       |
+       v
+11. Access NGINX
+       |
+       v
+   11.1. Use `minikube service` (if using Minikube) or access via external IP for LoadBalancer
+   11.2. Confirm NGINX is serving traffic
+
