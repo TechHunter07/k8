@@ -1,6 +1,6 @@
-<div style="background-color: #000000; padding: 10px; border-radius: 5px;">
+<div style="background-color: #FF0000; padding: 10px; border-radius: 5px;">
   <h2>Kubernetes</h2>
-  <p>Architecture
+</div>
 <div align="center">
   <img src="https://github.com/user-attachments/assets/0a1f25f7-9472-4855-be7b-f8e1f105af24" alt="docker" width="100">
 </div>
@@ -216,5 +216,4 @@ Command: kubectl rollout undo deployment/<deployment-name> -n <namespace-name>
        v
    11.1. Use `minikube service` (if using Minikube) or access via external IP for LoadBalancer
    11.2. Confirm NGINX is serving traffic
-</p>
-</div>
+
