@@ -79,7 +79,62 @@ Explanation of Kubernetes Components
   │    │    │    ├── Docker Image
   │    │    │    │    └── Docker File**
 
-************************** Basic Flow Chart to run an application IN K8 ***************************
+
+************************** **Basic Flow Chart to  in  K8** ***************************
+Create Kubernetes Namespace
+    |
+    v
+Command: kubectl create namespace <namespace-name>
+    |
+    v
+Create ConfigMaps & Secrets (if needed)
+    |
+    v
+Command: kubectl create configmap <configmap-name> --from-literal=<key>=<value> -n <namespace-name>
+Command: kubectl create secret generic <secret-name> --from-literal=<key>=<value> -n <namespace-name>
+    |
+    v
+Create Persistent Volumes & Claims (if needed)
+    |
+    v
+Command: kubectl apply -f <persistent-volume-file>.yaml
+Command: kubectl apply -f <persistent-volume-claim-file>.yaml
+    |
+    v
+Create Kubernetes Deployment
+    |
+    v
+Command: kubectl apply -f <deployment-file>.yaml
+    |
+    v
+Create Kubernetes Service
+    |
+    v
+Command: kubectl apply -f <service-file>.yaml
+    |
+    v
+Verify Deployment
+    |
+    v
+Command: kubectl get deployments -n <namespace-name>
+Command: kubectl get pods -n <namespace-name>
+Command: kubectl get svc -n <namespace-name>
+    |
+    v
+Monitor & Scale (if needed)
+    |
+    v
+Command: kubectl top pods -n <namespace-name>
+Command: kubectl scale deployment <deployment-name> --replicas=<number> -n <namespace-name>
+    |
+    v
+Update & Rollback (if needed)
+    |
+    v
+Command: kubectl set image deployment/<deployment-name> <container-name>=<new-image> -n <namespace-name>
+Command: kubectl rollout undo deployment/<deployment-name> -n <namespace-name>
+
+************************** Basic Flow Chart to run an application [NGNIX] in  K8 ***************************
 1. Create Dockerfile
        |
        v
