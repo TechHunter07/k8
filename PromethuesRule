@@ -1,0 +1,36 @@
+PrometheusRule is a Kubernetes Custom Resource Definition (CRD) provided by the Prometheus Operator. It defines a set of alerting and recording rules for Prometheus within a Kubernetes environment.
+The PrometheusRule resource allows you to manage and deploy alerting rules dynamically through Kubernetes, rather than editing Prometheus configurations manually.
+Key Aspects of PrometheusRule
+  API Version and Kind:
+        The API version is monitoring.coreos.com/v1, and the kind is PrometheusRule.
+        This indicates that it's a custom resource managed by the Prometheus Operator, which extends the Kubernetes API.
+  Purpose:
+        The PrometheusRule resource allows you to define:
+            Alerting rules: Conditions under which Prometheus should generate alerts based on time-series data.
+            Recording rules: Rules to precompute frequently used or complex PromQL queries and store the results as new time-series metrics.
+        The advantage is that these rules can be managed directly within Kubernetes, using standard tools like kubectl, as part of the declarative configuration approach.
+``` plaintext
+The process of applying a PrometheusRule in Kubernetes using the Prometheus Operator:
+1. User applies PrometheusRule YAML using kubectl
+   |
+   v
+2. Kubernetes API Server validates and stores the rule in etcd
+   |
+   v
+3. Prometheus Operator detects the PrometheusRule change
+   |
+   v
+4. Prometheus Operator validates the rule
+   |
+   v
+5. Prometheus Operator updates Prometheus ConfigMap
+   |
+   v
+6. Kubernetes mounts the updated ConfigMap to Prometheus pods
+   |
+   v
+7. Prometheus dynamically reloads configuration
+   |
+   v
+8. Prometheus evaluates the rule
+```
